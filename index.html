@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boya Vamshi | CSE (Data Science) Student Portfolio</title>
+<meta name="description" content="Portfolio of Boya Vamshi, B.Tech CSE (Data Science) student skilled in Python, SQL, C and Core Java.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050d24;--bg2:#0a1a3d;--card:rgba(14,32,72,.55);--line:rgba(34,211,238,.28);--tx:#e8f1ff;--mut:#9db3d6;--cy:#22d3ee;--bl:#3b82f6;--glow:rgba(34,211,238,.35);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef5ff;--bg2:#dbeafe;--card:rgba(255,255,255,.7);--line:rgba(8,145,178,.35);--tx:#0b1b3a;--mut:#3d5479;--cy:#0891b2;--bl:#2563eb;--glow:rgba(8,145,178,.25)}}
+:root[data-theme="light"]{--bg:#eef5ff;--bg2:#dbeafe;--card:rgba(255,255,255,.7);--line:rgba(8,145,178,.35);--tx:#0b1b3a;--mut:#3d5479;--cy:#0891b2;--bl:#2563eb;--glow:rgba(8,145,178,.25)}
+:root[data-theme="dark"]{--bg:#050d24;--bg2:#0a1a3d}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 Sora,system-ui,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 50% at 80% 10%,var(--bg2),transparent),linear-gradient(var(--line) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/56px 56px,var(--bg);opacity:1;-webkit-mask:linear-gradient(#000,transparent 90%);mask:linear-gradient(#000,transparent 90%)}
+canvas{position:fixed;inset:0;z-index:-1;pointer-events:none}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(1.6rem,3vw,2.1rem);margin:0 0 28px;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:28px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--cy),var(--bl));box-shadow:0 0 12px var(--glow)}
+.mono{font-family:'JetBrains Mono',monospace}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);border-color:var(--cy);box-shadow:0 14px 44px var(--glow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;border:1px solid var(--line);font:600 .95rem Sora,sans-serif;cursor:pointer;color:var(--tx);background:var(--card);transition:transform .2s,box-shadow .2s,opacity .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 26px var(--glow)}
+.btn:active{transform:none}.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.pri{background:linear-gradient(135deg,var(--cy),var(--bl));color:#031024;border:0}
+svg.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.logo{font-weight:800;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.logo b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--cy),var(--bl));color:#031024;font-size:.85rem}
+.links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:8px 12px;border-radius:10px;color:var(--mut);font-size:.9rem;transition:.2s}
+.links a:hover,.links a.on{color:var(--cy);background:var(--card)}
+.acts{display:flex;gap:8px;align-items:center}
+.ib{width:42px;height:42px;padding:0;justify-content:center}
+#menu{display:none}
+@media(max-width:940px){#menu{display:inline-flex}.links{position:fixed;top:calc(66px + env(safe-area-inset-top,0px));left:12px;right:12px;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:10px;display:none}.links.open{display:flex}.dl span{display:none}.dl{padding:0;width:42px;justify-content:center}}
+/* hero */
+#home{padding-top:130px;min-height:100vh;display:flex;align-items:center}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;background:var(--card);font-size:.82rem;color:var(--cy)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
+h1{font-size:clamp(2.2rem,5.6vw,3.9rem);line-height:1.08;margin:18px 0;font-weight:800;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,var(--cy),var(--bl),var(--cy));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite;filter:drop-shadow(0 0 18px var(--glow))}
+@keyframes sh{to{background-position:200% center}}
+.lead{color:var(--mut);max-width:520px}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.vis{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto}
+.vis svg.core{width:100%;height:100%;overflow:visible}
+.fl{position:absolute;padding:8px 14px;border-radius:12px;font-size:.82rem;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 24px var(--glow);animation:fy 5s ease-in-out infinite}
+@keyframes fy{50%{transform:translateY(-9px)}}
+.ring{transform-origin:250px 250px;animation:rot 40s linear infinite}.ring2{transform-origin:250px 250px;animation:rot 60s linear infinite reverse}
+@keyframes rot{to{transform:rotate(360deg)}}
+/* about/skills */
+.info{display:flex;gap:12px;align-items:flex-start}.info svg{color:var(--cy);margin-top:3px}.info small{display:block;color:var(--mut);font-size:.78rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(34,211,238,.08);font-size:.88rem;transition:.2s}
+.chip:hover{background:rgba(34,211,238,.2);box-shadow:0 0 16px var(--glow)}
+.ct{display:flex;align-items:center;gap:10px;font-weight:700}.ct svg{color:var(--cy)}
+/* timeline */
+.tl{position:relative;padding-left:34px;display:grid;gap:18px}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cy),var(--bl));box-shadow:0 0 10px var(--glow)}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-33px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--cy);box-shadow:0 0 14px var(--cy)}
+.yr{color:var(--cy);font-size:.85rem}.pct{float:right;font-weight:800;font-size:1.3rem;color:var(--cy)}
+/* pipeline */
+.pipe{display:flex;align-items:stretch;gap:0;margin:22px 0;flex-wrap:wrap}
+.st{flex:1;min-width:120px;text-align:center;padding:14px 8px;border:1px solid var(--line);border-radius:14px;background:rgba(34,211,238,.06)}
+.st svg{color:var(--cy);margin:0 auto 6px;display:block}.st span{font-size:.85rem}
+.ar{align-self:center;color:var(--cy);padding:0 6px}
+@media(max-width:700px){.pipe{flex-direction:column}.ar{transform:rotate(90deg);padding:6px 0}}
+ul.ck{list-style:none;padding:0;margin:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+ul.ck li{display:flex;gap:10px;color:var(--mut)}ul.ck svg{color:#34d399;margin-top:3px}
+/* form */
+form{display:grid;gap:14px}
+label{font-size:.85rem;color:var(--mut);display:block;margin-bottom:6px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(3,10,30,.35);color:var(--tx);font:inherit}
+:root[data-theme="light"] input,:root[data-theme="light"] textarea{background:rgba(255,255,255,.8)}
+input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#f87171}
+.err{color:#fca5a5;font-size:.8rem;min-height:1.1em;display:block;margin-top:4px}
+#ok{color:#34d399;font-size:.9rem;min-height:1.4em}
+footer{border-top:1px solid var(--line);padding:32px 0}
+.foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.foot ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;color:var(--mut);font-size:.9rem;flex-wrap:wrap}.foot a:hover{color:var(--cy)}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div><canvas id="cv" aria-hidden="true"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 7.5v.01M12 17v-6m0 3c0-2 1.5-3 3-3s2 1 2 3v3"/></symbol>
+<symbol id="cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/></symbol>
+<symbol id="code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+<symbol id="tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 12.6 12.6 21a2.1 2.1 0 0 1-3-3L18 9.6"/><path d="M14.7 6.3 11 10"/></symbol>
+<symbol id="os" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="brain" viewBox="0 0 24 24"><path d="M3 20V4M3 20h18M7 15l4-5 3 3 5-7"/></symbol>
+<symbol id="award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></symbol>
+<symbol id="chk" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+<symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+<symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11m-5-4 5 5 5-5M5 20h14"/></symbol>
+<symbol id="home2" viewBox="0 0 24 24"><path d="M3 11c1-6 8-8 9-8s8 2 9 8c0 6-9 10-9 10S3 17 3 11z"/></symbol>
+<symbol id="db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+<symbol id="brush" viewBox="0 0 24 24"><path d="M4 20h16M6 16l3-9h6l3 9M9 12h6"/></symbol>
+<symbol id="bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.8 1 1.5 1 2.5h6c0-1 .3-1.7 1-2.5A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1 6 5"/></symbol>
+<symbol id="tgt" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="ref" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 4v5h-5M20 12a8 8 0 0 1-14 5l-2-2M4 20v-5h5"/></symbol>
+<symbol id="glb" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></symbol>
+<symbol id="mn" viewBox="0 0 24 24"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></symbol>
+<symbol id="bars" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="clip" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/></symbol>
+</defs></svg>
+
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home" aria-label="Boya Vamshi, home"><b>BV</b><span>BOYA VAMSHI</span></a>
+<ul class="links" id="links">
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#education">Education</a></li><li><a href="#projects">Projects</a></li><li><a href="#certification">Certification</a></li><li><a href="#contact">Contact</a></li></ul>
+<div class="acts">
+<a class="btn pri dl" href="Boya_Vamshi_Resume__Ats.pdf" download><svg class="i"><use href="#dl"/></svg><span>Download Resume</span></a>
+<button class="btn ib" id="theme" aria-label="Toggle light or dark theme"><svg class="i"><use href="#sun"/></svg></button>
+<button class="btn ib" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="links"><svg class="i"><use href="#bars"/></svg></button>
+</div></nav></div></header>
+
+<main>
+<section id="home"><div class="wrap hero">
+<div>
+<span class="badge"><i></i>Computer Science &amp; Data Science Student</span>
+<h1>Building my journey in <span class="grad">Data Science</span> &amp; Technology.</h1>
+<p class="lead">Motivated and detail-oriented B.Tech Data Science student with strong analytical, technical and problem-solving skills. Proficient in Python, SQL and core programming paradigms.</p>
+<div class="row"><a class="btn pri" href="#projects">View My Projects <svg class="i"><use href="#arr"/></svg></a><a class="btn" href="#contact">Contact Me</a></div>
+<div class="row" style="margin-top:20px">
+<a class="btn ib" href="https://linkedin.com/in/boya-vamshi-4a15b9394" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#in"/></svg></a>
+<a class="btn ib" href="mailto:boya.vamshi11@gmail.com" aria-label="Email"><svg class="i"><use href="#mail"/></svg></a>
+<a class="btn ib" href="tel:+919390204615" aria-label="Phone"><svg class="i"><use href="#phone"/></svg></a></div>
+</div>
+<div class="vis" role="img" aria-label="Abstract data science visual with charts, code and network nodes">
+<svg class="core" viewBox="0 0 500 500">
+<defs><radialGradient id="rg"><stop offset="0" stop-color="#22d3ee" stop-opacity=".35"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></radialGradient>
+<linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
+<circle cx="250" cy="250" r="230" fill="url(#rg)"/>
+<g class="ring" fill="none" stroke="url(#lg)" stroke-width="1.5"><circle cx="250" cy="250" r="215" stroke-dasharray="4 10"/><circle cx="250" cy="35" r="6" fill="#22d3ee"/><circle cx="465" cy="250" r="4" fill="#3b82f6"/></g>
+<g class="ring2" fill="none" stroke="#22d3ee" stroke-opacity=".5"><circle cx="250" cy="250" r="175" stroke-dasharray="60 20"/><circle cx="75" cy="250" r="5" fill="#22d3ee"/></g>
+<circle cx="250" cy="250" r="130" fill="rgba(5,13,36,.75)" stroke="url(#lg)" stroke-width="2"/>
+<g fill="url(#lg)"><rect x="185" y="270" width="20" height="45" rx="4"/><rect x="215" y="245" width="20" height="70" rx="4"/><rect x="245" y="262" width="20" height="53" rx="4"/><rect x="275" y="220" width="20" height="95" rx="4"/></g>
+<path d="M180 250 220 215l35 20 50-50" fill="none" stroke="#e8f1ff" stroke-width="2.5" stroke-linecap="round"/>
+<g fill="#e8f1ff"><circle cx="180" cy="250" r="4"/><circle cx="220" cy="215" r="4"/><circle cx="255" cy="235" r="4"/><circle cx="305" cy="185" r="4"/></g>
+<text x="250" y="200" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="20">&lt;/&gt;</text>
+<g stroke="#22d3ee" stroke-opacity=".4"><path d="M60 110 120 70M120 70l50 40M380 420l60-50M440 370l-10-60M60 380l40-40M100 340l-30-50"/></g>
+<g fill="#22d3ee"><circle cx="60" cy="110" r="4"/><circle cx="120" cy="70" r="5"/><circle cx="170" cy="110" r="3"/><circle cx="380" cy="420" r="4"/><circle cx="440" cy="370" r="5"/><circle cx="60" cy="380" r="4"/><circle cx="100" cy="340" r="3"/></g>
+</svg>
+<span class="fl mono" style="top:6%;right:2%">Python</span>
+<span class="fl mono" style="top:30%;left:-2%;animation-delay:-1s">SQL</span>
+<span class="fl mono" style="top:56%;right:-2%;animation-delay:-2s">Data Analysis</span>
+<span class="fl mono" style="bottom:8%;left:6%;animation-delay:-3s">Java</span>
+<span class="fl mono" style="bottom:-1%;right:22%;animation-delay:-4s">Problem Solving</span>
+</div></div></section>
+
+<section id="about"><div class="wrap">
+<h2 class="rv">About Me</h2>
+<div class="grid rv" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+<div class="card" style="grid-column:1/-1"><p style="margin:0;color:var(--mut);max-width:80ch">Motivated and detail-oriented B.Tech Data Science student with strong analytical, technical, and problem-solving skills. Proficient in Python, SQL, and core programming paradigms. Eager to leverage academic training, hands-on project experience, and data analysis skills to contribute to organizational success and real-world technology solutions.</p></div>
+<div class="card info"><svg class="i"><use href="#cap"/></svg><div><small>Education</small>B.Tech CSE (Data Science)</div></div>
+<div class="card info"><svg class="i"><use href="#award"/></svg><div><small>College</small>St. Johns College of Engineering &amp; Technology (JNTUA)</div></div>
+<div class="card info"><svg class="i"><use href="#pin"/></svg><div><small>Location</small>Kurnool, Andhra Pradesh, India</div></div>
+<div class="card info"><svg class="i"><use href="#bulb"/></svg><div><small>Availability</small>Student / Open to Learning Opportunities</div></div>
+</div></div></section>
+
+<section id="skills"><div class="wrap">
+<h2 class="rv">Technical Skills</h2>
+<div class="grid g2 rv">
+<div class="card"><div class="ct"><svg class="i"><use href="#code"/></svg>Programming</div><div class="chips"><span class="chip mono">Python</span><span class="chip mono">SQL</span><span class="chip mono">C</span><span class="chip mono">Core Java</span><span class="chip mono">HTML</span></div></div>
+<div class="card"><div class="ct"><svg class="i"><use href="#tool"/></svg>Tools &amp; Software</div><div class="chips"><span class="chip">MS Office</span><span class="chip">Excel</span><span class="chip">PowerPoint</span><span class="chip">Word</span></div></div>
+<div class="card"><div class="ct"><svg class="i"><use href="#os"/></svg>Operating Systems</div><div class="chips"><span class="chip">Windows</span><span class="chip">Linux</span><span class="chip">DOS</span></div></div>
+<div class="card"><div class="ct"><svg class="i"><use href="#brain"/></svg>Core Competencies</div><div class="chips"><span class="chip">Data Collection &amp; Analysis</span><span class="chip">Database Basics</span><span class="chip">Team Collaboration</span></div></div>
+</div>
+<h2 class="rv" style="margin-top:56px">Soft Skills</h2>
+<div class="grid g4 rv">
+<div class="card info"><svg class="i"><use href="#brain"/></svg>Analytical Thinking</div>
+<div class="card info"><svg class="i"><use href="#team"/></svg>Teamwork &amp; Collaboration</div>
+<div class="card info"><svg class="i"><use href="#tgt"/></svg>Goal-Oriented</div>
+<div class="card info"><svg class="i"><use href="#ref"/></svg>Adaptability</div>
+</div>
+<h2 class="rv" style="margin-top:56px">Languages</h2>
+<div class="grid g2 rv" style="grid-template-columns:repeat(auto-fit,minmax(200px,260px))">
+<div class="card info"><svg class="i"><use href="#glb"/></svg><div>English<small>Professional</small></div></div>
+<div class="card info"><svg class="i"><use href="#glb"/></svg><div>Telugu<small>Native</small></div></div>
+</div></div></section>
+
+<section id="education"><div class="wrap">
+<h2 class="rv">Education</h2>
+<div class="tl rv">
+<div class="card"><span class="pct">76.09%</span><div class="yr mono">2023 – 2027 (Expected)</div><strong>B.Tech – CSE (Data Science)</strong><div style="color:var(--mut)">St. Johns College of Engineering &amp; Technology (JNTUA), Andhra Pradesh</div></div>
+<div class="card"><span class="pct">58.50%</span><div class="yr mono">2021 – 2023</div><strong>Intermediate – MPC</strong><div style="color:var(--mut)">AP Model School and College, AP State Board</div></div>
+<div class="card"><span class="pct">79.83%</span><div class="yr mono">2020</div><strong>Secondary School Certificate (SSC)</strong><div style="color:var(--mut)">AP Model School, AP State Board</div></div>
+</div></div></section>
+
+<section id="projects"><div class="wrap">
+<h2 class="rv">Featured Project</h2>
+<article class="card rv">
+<span class="badge">Data analysis · Community impact</span>
+<h3 style="font-size:1.5rem;margin:14px 0 6px">Community Service Project (CSP) – Organic Farming Data Survey Field Project</h3>
+<div class="pipe" aria-label="Project flow: Households, Data Collection, Data Cleaning, Analysis, Insights">
+<div class="st"><svg class="i"><use href="#home2"/></svg><span>Households</span></div><svg class="i ar"><use href="#arr"/></svg>
+<div class="st"><svg class="i"><use href="#clip"/></svg><span>Data Collection</span></div><svg class="i ar"><use href="#arr"/></svg>
+<div class="st"><svg class="i"><use href="#brush"/></svg><span>Data Cleaning</span></div><svg class="i ar"><use href="#arr"/></svg>
+<div class="st"><svg class="i"><use href="#brain"/></svg><span>Analysis</span></div><svg class="i ar"><use href="#arr"/></svg>
+<div class="st"><svg class="i"><use href="#bulb"/></svg><span>Insights</span></div></div>
+<ul class="ck">
+<li><svg class="i"><use href="#chk"/></svg>Field survey across 30 households in local farming communities</li>
+<li><svg class="i"><use href="#chk"/></svg>Organic horticulture data collection</li>
+<li><svg class="i"><use href="#chk"/></svg>Data cleaning and basic statistical analysis</li>
+<li><svg class="i"><use href="#chk"/></svg>Evaluation of community access to sustainable agriculture</li>
+<li><svg class="i"><use href="#chk"/></svg>Structured analytical report</li>
+<li><svg class="i"><use href="#chk"/></svg>Actionable insights supporting community development initiatives</li></ul>
+<div class="chips"><span class="chip mono">Python</span><span class="chip mono">Data Collection</span><span class="chip mono">Data Analysis</span><span class="chip mono">Statistics</span><span class="chip mono">Research</span></div>
+</article></div></section>
+
+<section id="certification"><div class="wrap">
+<h2 class="rv">Certification</h2>
+<div class="card info rv" style="gap:20px;align-items:center;max-width:760px">
+<svg class="i" style="width:56px;height:56px;filter:drop-shadow(0 0 14px var(--cy))"><use href="#award"/></svg>
+<div><strong style="font-size:1.2rem">Python Programming Certification</strong><small style="font-size:.9rem;color:var(--cy)">Aylin Technology</small><p style="margin:8px 0 0;color:var(--mut)">Completed a comprehensive practical workshop on core Python fundamentals, data structures, and algorithmic logic.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap">
+<h2 class="rv">Let's Build Something Great</h2>
+<p class="rv" style="color:var(--mut);margin-top:-14px;margin-bottom:28px">Interested in connecting, collaborating, or discussing technology and data science?</p>
+<div class="grid rv" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+<div class="grid">
+<a class="card info" href="mailto:boya.vamshi11@gmail.com"><svg class="i"><use href="#mail"/></svg><div><small>Email</small>boya.vamshi11@gmail.com</div></a>
+<a class="card info" href="tel:+919390204615"><svg class="i"><use href="#phone"/></svg><div><small>Phone</small>+91-9390204615</div></a>
+<div class="card info"><svg class="i"><use href="#pin"/></svg><div><small>Location</small>Kurnool, Andhra Pradesh, India</div></div>
+<a class="card info" href="https://linkedin.com/in/boya-vamshi-4a15b9394" target="_blank" rel="noopener"><svg class="i"><use href="#in"/></svg><div><small>LinkedIn</small>linkedin.com/in/boya-vamshi-4a15b9394</div></a>
+</div>
+<form class="card" id="f" novalidate>
+<div><label for="n">Name</label><input id="n" name="n" autocomplete="name" required><span class="err" id="en"></span></div>
+<div><label for="e">Email</label><input id="e" name="e" type="email" autocomplete="email" required><span class="err" id="ee"></span></div>
+<div><label for="s">Subject</label><input id="s" name="s" required><span class="err" id="es"></span></div>
+<div><label for="m">Message</label><textarea id="m" name="m" rows="5" required></textarea><span class="err" id="em"></span></div>
+<button class="btn pri" type="submit" style="justify-content:center">Send Message</button>
+<div id="ok" role="status" aria-live="polite"></div>
+</form></div></div></section>
+</main>
+
+<footer><div class="wrap foot">
+<div><strong>BOYA VAMSHI</strong><div style="color:var(--mut);font-size:.88rem">Computer Science &amp; Engineering (Data Science) Student</div></div>
+<ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul>
+<div style="color:var(--mut);font-size:.85rem;width:100%">© 2026 Boya Vamshi. All rights reserved.</div>
+</div></footer>
+
+<script>
+(function(){
+var r=document.documentElement,tb=document.getElementById('theme');
+function ic(){var d=isDark();tb.innerHTML='<svg class="i"><use href="#'+(d?'sun':'mn')+'"/></svg>'}
+function isDark(){var t=r.getAttribute('data-theme');return t?t==='dark':!matchMedia('(prefers-color-scheme:light)').matches}
+ic();
+tb.onclick=function(){r.setAttribute('data-theme',isDark()?'light':'dark');ic()};
+var mb=document.getElementById('menu'),ln=document.getElementById('links');
+mb.onclick=function(){var o=ln.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+ln.addEventListener('click',function(e){if(e.target.tagName==='A'){ln.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+// reveal + active link
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(x){io.observe(x)});
+var secs=[].slice.call(document.querySelectorAll('main section')),as=[].slice.call(ln.querySelectorAll('a'));
+var so=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){as.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(function(s){so.observe(s)});
+// particles
+var c=document.getElementById('cv'),x=c.getContext('2d'),P=[],W,H;
+function sz(){W=c.width=innerWidth;H=c.height=innerHeight}sz();addEventListener('resize',sz);
+for(var i=0;i<46;i++)P.push({x:Math.random()*1e3,y:Math.random()*1e3,v:.15+Math.random()*.3,r:1+Math.random()*1.6});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)(function f(){x.clearRect(0,0,W,H);x.fillStyle='rgba(34,211,238,.55)';P.forEach(function(p){p.y-=p.v;if(p.y<0){p.y=H;p.x=Math.random()*W}x.beginPath();x.arc(p.x%W,p.y,p.r,0,7);x.fill()});requestAnimationFrame(f)})();
+// form
+var f=document.getElementById('f'),ok=document.getElementById('ok');
+function chk(id,er,fn,msg){var el=document.getElementById(id),v=el.value.trim(),bad=!fn(v);el.setAttribute('aria-invalid',bad);document.getElementById(er).textContent=bad?msg:'';return !bad}
+f.onsubmit=function(ev){ev.preventDefault();ok.textContent='';
+var a=chk('n','en',function(v){return v.length>1},'Enter your name.'),
+b=chk('e','ee',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)},'Enter a valid email address.'),
+d=chk('s','es',function(v){return v.length>2},'Enter a subject.'),
+g=chk('m','em',function(v){return v.length>=10},'Write at least 10 characters.');
+if(!(a&&b&&d&&g))return;
+var body='From: '+n.value.trim()+' ('+e.value.trim()+')\n\n'+m.value.trim();
+location.href='mailto:boya.vamshi11@gmail.com?subject='+encodeURIComponent(s.value.trim())+'&body='+encodeURIComponent(body);
+ok.textContent='Opening your email app to send this message.';f.reset()};
+})();
+</script>
+</body>
+</html>
